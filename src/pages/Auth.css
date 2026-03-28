@@ -1,0 +1,194 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  background: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-header .logo {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.auth-header h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.auth-header p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  background: rgba(10, 10, 10, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-purple-start);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+  background: rgba(10, 10, 10, 0.8);
+}
+
+/* Custom Calendar Icon for date input in dark mode */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 0.6;
+}
+.form-group input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  background-color: var(--accent-red);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+}
+
+.auth-submit-btn:hover {
+  background-color: var(--accent-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(239, 68, 68, 0.4);
+}
+
+.auth-footer {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.auth-link {
+  font-weight: 600;
+  color: var(--accent-purple-end);
+  transition: all 0.2s;
+}
+.auth-link:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+
+/* Role Slider / Toggle Switch */
+.role-slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.role-slider-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.role-slider {
+  position: relative;
+  display: flex;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.role-slider-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.role-slider-btn.active {
+  color: #fff;
+}
+
+.role-slider-bg {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: calc(50% - 4px);
+  background: linear-gradient(135deg, var(--accent-purple-start), var(--accent-purple-end));
+  border-radius: 26px;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
+
+.role-slider-bg.right {
+  transform: translateX(100%);
+}

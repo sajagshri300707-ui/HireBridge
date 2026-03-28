@@ -1,0 +1,72 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 48px;
+  z-index: 100;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+  padding: 16px 48px;
+  background: rgba(10, 10, 10, 0.7);
+  border-radius: 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.5); /* Subtle purple glow */
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links li a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: var(--accent-purple-end);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--accent-purple-end);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide for simple mobile view, can implement hamburger later */
+  }
+}
