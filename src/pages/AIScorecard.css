@@ -1,0 +1,370 @@
+/* AI Scorecard Page CSS */
+
+.scorecard-loading {
+  min-height: 100vh;
+  background: #08080f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.scorecard-loading-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.scorecard-spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid rgba(124,58,237,0.2);
+  border-top-color: #7c3aed;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.scorecard-loading-inner h2 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin: 0;
+}
+
+.scorecard-loading-inner p {
+  color: #71717a;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #7c3aed;
+  animation: dotBounce 1.2s ease infinite;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30%            { transform: translateY(-10px); opacity: 1; }
+}
+
+/* ── Page ── */
+.scorecard-page {
+  min-height: 100vh;
+  background: #08080f;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Header ── */
+.scorecard-header {
+  background: linear-gradient(135deg, rgba(14,10,30,0.99), rgba(20,14,50,0.99));
+  border-bottom: 1px solid rgba(124,58,237,0.2);
+  padding: 32px 0;
+}
+
+.scorecard-header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.back-btn:hover { color: #a1a1aa; }
+
+.scorecard-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.scorecard-title-row h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.scorecard-job-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a855f7;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 8px;
+  padding: 4px 12px;
+}
+
+.ai-badge {
+  font-size: 0.78rem;
+  color: #c084fc;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.scorecard-meta {
+  color: #52525b;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ── Body ── */
+.scorecard-body {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* ── Section ── */
+.scorecard-section {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 28px 28px;
+}
+
+.scorecard-section--strengths  { border-color: rgba(74,222,128,0.15); }
+.scorecard-section--improve    { border-color: rgba(251,191,36,0.15); }
+.scorecard-section--interviewer-only {
+  border-color: rgba(124,58,237,0.25);
+  background: rgba(124,58,237,0.03);
+}
+
+.scorecard-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.section-icon { font-size: 1.3rem; }
+
+.section-title-row h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e4e4e7;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.interviewer-only-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #a855f7;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 4px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Skill Bars ── */
+.skill-bars { display: flex; flex-direction: column; gap: 14px; }
+
+.skill-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.skill-bar-label {
+  width: 140px;
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.skill-bar-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+  animation: fillBar 1s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+@keyframes fillBar {
+  to { width: var(--target); }
+}
+
+.skill-bar-pct {
+  width: 40px;
+  text-align: right;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #a855f7;
+  flex-shrink: 0;
+}
+
+/* ── Insight Lists ── */
+.insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #e4e4e7;
+}
+
+.insight-item--strength { background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.12); }
+.insight-item--improve  { background: rgba(251,191,36,0.06);  border: 1px solid rgba(251,191,36,0.12); }
+
+.insight-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.insight-dot--green { background: #4ade80; }
+.insight-dot--amber { background: #fbbf24; }
+
+/* ── Behavioral ── */
+.behavioral-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.behavioral-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.behavioral-index {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.behavioral-card p {
+  font-size: 0.85rem;
+  color: #c4b5fd;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Eval summary (interviewer only) ── */
+.eval-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.eval-summary-pill {
+  background: rgba(124,58,237,0.08);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eval-summary-label { font-size: 0.75rem; color: #71717a; }
+.eval-summary-val { font-size: 1.2rem; font-weight: 800; color: #a855f7; }
+
+/* ── Footer note ── */
+.scorecard-footer-note {
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.scorecard-footer-note p {
+  font-size: 0.78rem;
+  color: #52525b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .scorecard-columns { grid-template-columns: 1fr; }
+  .scorecard-body { padding: 24px 16px; }
+  .scorecard-header-inner { padding: 0 16px; }
+  .scorecard-title-row { flex-direction: column; align-items: flex-start; }
+  .skill-bar-label { width: 100px; font-size: 0.78rem; }
+}

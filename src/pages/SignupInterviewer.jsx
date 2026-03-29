@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SignUp } from '@clerk/clerk-react';
+import { setRole } from '../utils/storage';
 import './Auth.css';
 
 const SignupInterviewer = () => {
+  useEffect(() => {
+    setRole('interviewer');
+  }, []);
+
   return (
     <div className="auth-page">
       <div className="auth-background">
@@ -14,7 +19,7 @@ const SignupInterviewer = () => {
           path="/signup/interviewer"
           routing="path"
           signInUrl="/login"
-          fallbackRedirectUrl="/interviewer-dashboard"
+          forceRedirectUrl="/interviewer-dashboard"
         />
       </div>
     </div>
@@ -22,3 +27,4 @@ const SignupInterviewer = () => {
 };
 
 export default SignupInterviewer;
+
